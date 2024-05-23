@@ -3,7 +3,7 @@ import { View,StyleSheet ,Text} from 'react-native'
 
 import Header from '../../components/Header/Header';
 import { Button ,Icon} from '@rneui/themed';
-import { StackNavigationState, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp} from '@react-navigation/stack';
 import { RootStackParamList} from '../../types';
 

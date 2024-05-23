@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View,Text,StyleSheet } from 'react-native'
 import Header from '../../components/Header/Header';
-import {Button,Icon} from '@rneui/themed'
+import {Button,Icon,Input} from '@rneui/themed'
+import AddFoodModal from '../../components/AddFoodModal';
+
 
 const AddFood = () => {
+  const [visible,setIsVisible] = useState<boolean>(false);
+  const handlerModalClosed = () =>{
+    setIsVisible(false);
+  }
   return (
    <View style={styles.container}>
     <Header/>
@@ -17,6 +23,7 @@ const AddFood = () => {
           icon={<Icon name="add-circle-outline" color="#fff"/>}
           radius="lg"
           color="#4ecb71"
+          onPress={() => setIsVisible(true)}
         />
 
       </View>
@@ -25,7 +32,7 @@ const AddFood = () => {
     <View style={styles.searchContainer}>
       
     <View style={styles.inputContainer}>
-      <input placeholder='apples,pie,soda...' />
+      <Input placeholder='apples,pie,soda...' />
     </View>
       <Button
        title="Search"
@@ -34,6 +41,7 @@ const AddFood = () => {
        radius="lg"
       />
     </View>
+    <AddFoodModal visible={visible} onClose={handlerModalClosed} /> 
    </View>
   );
 };
@@ -41,13 +49,13 @@ const AddFood = () => {
 const styles = StyleSheet.create({
   container:{
     padding: 12,
-
   },
   legendContainer:{
     flex: 1,
   },
   addFoodBtnContainer:{
     flex: 1,
+    alignItems: 'flex-end',
   },
   addFoodContainer:{
     flexDirection: 'row',

@@ -16,7 +16,7 @@ const Header = () => {
         <View style={styles.arrowContainer}>
             <Button 
             icon={<Icon name="arrow-back" size={24} />}
-            
+            type="clear"
             onPress={() => goBack()}
          />
 
